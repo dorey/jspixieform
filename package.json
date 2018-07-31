@@ -1,0 +1,38 @@
+{
+  "name": "jspixieform",
+  "version": "0.1",
+  "description": "a proof of concept app of a pyxform port written in Javascript",
+  "main": "index.js",
+  "scripts": {
+    "start": "node server.js",
+    "test": "cross-env NODE_ENV=test ./node_modules/.bin/mocha ./src/actions/*.spec.js* ./src/reducers/*.spec.js* ./src/redux/*.spec.js* ./src/react-redux/*.spec.js* --compilers js:babel-register --require ./setup-jsdom.js -w"
+  },
+  "author": "@dorey",
+  "license": "MIT",
+  "dependencies": {
+    "coffee-script": "^1.12.6",
+    "diff": "^3.2.0",
+    "pretty-data": "^0.40.0",
+    "react": "^15.4.1",
+    "react-dom": "^15.4.1",
+    "underscore": "^1.8.3"
+  },
+  "devDependencies": {
+    "babel-core": "^6.20.0",
+    "babel-loader": "^6.2.9",
+    "babel-preset-es2015": "^6.18.0",
+    "babel-preset-react": "^6.16.0",
+    "babel-preset-stage-0": "^6.16.0",
+    "babel-register": "^6.18.0",
+    "cross-env": "^3.1.3",
+    "immutable": "^3.8.1",
+    "jquery": "^3.2.1",
+    "jsdom": "^9.8.3",
+    "mocha": "^3.2.0",
+    "react-addons-test-utils": "^15.4.1",
+    "react-container-component": "^1.0.3",
+    "react-hot-loader": "^1.3.1",
+    "webpack": "^1.14.0",
+    "webpack-dev-server": "^1.16.2"
+  }
+}

@@ -11,6 +11,7 @@ module.exports = {
     'webpack/hot/only-dev-server',
     './src/index.js'
   ],
+  mode: 'development',
   output: {
     path: BUILD_DIR,
     filename: 'bundle.js',
@@ -20,12 +21,12 @@ module.exports = {
     new webpack.HotModuleReplacementPlugin()
   ],
   resolve: {
-    extensions: ['', '.js']
+    extensions: ['.js']
   },
   module: {
-    loaders: [{
+    rules: [{
       test: /\.js?$/,
-      loaders: ['react-hot', 'babel'],
+      loaders: ['react-hot-loader/webpack', 'babel-loader'],
       include: path.join(__dirname, 'src'),
       exclude: [ /\.spec\.js/ ]
     },

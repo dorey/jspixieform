@@ -11,7 +11,7 @@ function prettyXml (xml) {
 
 let fixtures = require('./fixtures');
 
-let examples = [];
+export const examples = [];
 
 class Example {
   constructor ({xml, restructured, json, index}) {
@@ -125,7 +125,3 @@ fixtures.forEach((params, index)=> {
   params.index = index;
   new Example(params);
 })
-
-module.exports = {
-  examples: examples,
-};

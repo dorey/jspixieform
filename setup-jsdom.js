@@ -1,19 +1,24 @@
-import { jsdom } from 'jsdom'
+import { JSDOM } from 'jsdom'
 import { expect } from 'chai'
 
 // Define some html to be our basic document
 // JSDOM will consume this and act as if we were in a browser
-const DEFAULT_HTML = '<html><body><div id="app"></div></body></html>'
-
+const jsdom = new JSDOM(`<html><body><div id="app"></div></body></html>`);
 // Define some variables to make it look like we're a browser
 // First, use JSDOM's fake DOM as the document
-global.document = jsdom(DEFAULT_HTML)
 
-// Set up a mock window with config
-global.window = document.defaultView
-global.window.expect = expect
+let _window = jsdom.window;
 
-// Allow for things like window.location
-global.navigator = window.navigator
-global.XMLHttpRequest = window.XMLHttpRequest
-global.screen = window.screen
+_window.expect = expect;
+
+// could probably be simplified by just doing
+// Object.assign(global, jsdom.window);
+let extendables = {
+  document: _window.document,
+  window: _window,
+  navigator: _window.navigator,
+  XMLHttpRequest: _window.XMLHttpRequest,
+  screen: _window.screen,
+};
+
+Object.assign(global, extendables);

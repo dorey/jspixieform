@@ -25,6 +25,7 @@
   },
   "devDependencies": {
     "jsdom": "^15.1.1",
+    "power-assert": "^1.6.1",
     "mocha": "^6.2.0",
     "webpack-cli": "^3.3.9"
   },
